@@ -44,11 +44,32 @@ while True:
     )
 ```
 
+The library also includes an `AnimatedSprite` helper for managing sprite
+animations. Frames can come from a list of `pygame.Surface` objects or from a
+sprite sheet, while the `update` method advances the animation using the elapsed
+time in seconds:
+
+```python
+import pygame
+from pygkit.sprite import AnimatedSprite
+
+pygame.init()
+clock = pygame.time.Clock()
+
+frames = [pygame.Surface((32, 32), pygame.SRCALPHA) for _ in range(4)]
+sprite = AnimatedSprite(frames, frame_time=0.1)
+
+running = True
+while running:
+    dt = clock.tick(60) / 1000  # seconds
+    sprite.update(dt)
+```
+
 ## Modules
 
 Pygkit will be designed to work alongside Pygame, providing additional functionality through various modules. Here are a few of the planned modules:
 
-- **Sprite**: A sprite sheet loader, an animated sprite class, etc.
+- **Sprite**: Sprite sheet helpers including an animated sprite class.
 - **AI**: Tools and algorithms to help you create engaging game AI.
 - **GUI**: Components for creating menus, text boxes, and other user interface elements.
 - **Debug**: Various debug overlays that can be used to display real-time game information during development.
