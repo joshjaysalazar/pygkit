@@ -65,6 +65,9 @@ while running:
     sprite.update(dt)
 ```
 
+See `examples/animated_sprite_example.py` for a runnable demonstration that
+shows basic playback controls.
+
 ## Modules
 
 Pygkit will be designed to work alongside Pygame, providing additional functionality through various modules. Here are a few of the planned modules:
